@@ -323,7 +323,8 @@ class Chamber {
 		}
 
 		//assign the item
-		floor.items[floor.numItems++] = i;
+		floor.items[floor.numItems] = i;
+		floor.numItems++;
 	}
 
 }
