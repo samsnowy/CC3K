@@ -60,7 +60,7 @@ public class CC3K {
 			Player player = null;
 			newGame = false;
 
-			System.out.println("Welcome to ChamberCrawler 3000");
+			System.out.println("Welcome to ChamberCrawler 3000!");
 			System.out.println("Please choose a race:");
 			System.out.println("Human(h), Elves(e), Dwarf(d), Orc(o)");
 			System.out.println();
