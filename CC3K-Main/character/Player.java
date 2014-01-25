@@ -361,11 +361,12 @@ public class Player extends Character {
 	                          // remove the enemy from the floor
 	                          floor.setTile(tempx, tempy, '.');
 	                          e.setCoord(1,1);
+	                       
 	                          // if a dragon died, changes the dragon hoard availability
 	                          if(enemyRace == 'D'){
 	                              int tx = e.getHoardX();
 	                              int ty = e.getHoardY();
-	                              for(int n = 0;i < floor.getNumItems(); n++){
+	                              for(int n = 0;n < floor.getNumItems(); n++){
 	                                  if((tx == floor.getItem(n).getX()) && (ty == floor.getItem(n).getY())){
 	                                      floor.getItem(n).setDragonDead();
 	                                  }
