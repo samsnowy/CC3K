@@ -1,19 +1,19 @@
 package character;
 import floor.Floor;
 
-class Character {
-	protected int x, y, hp, atk, def;
-	protected float gold;
-	protected Floor floor;
+abstract class Character {
+		protected int x, y, hp, atk, def;
+		protected float gold;
+		protected Floor floor;
 	
-	public Character(int x, int y, int hp, int atk, int def, float gold, Floor floor) {
-		this.x = x;
-		this.y = y;
-		this.hp = hp;
-		this.atk = atk;
-		this.def = def;
-		this.gold = gold;
-		this.floor = floor;
+		public Character(int x, int y, int hp, int atk, int def, float gold, Floor floor) {
+			this.x = x;
+			this.y = y;
+			this.hp = hp;
+			this.atk = atk;
+			this.def = def;
+			this.gold = gold;
+			this.floor = floor;
 	}
 	
 	public int getX() { return x;}
