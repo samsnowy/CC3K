@@ -64,7 +64,7 @@ public class CC3K {
 			System.out.println("Please choose a race:");
 			System.out.println("Human(h), Elves(e), Dwarf(d), Orc(o)");
 			System.out.println();
-			System.out.println("Quit(q) Restart(r)");
+			System.out.println("Quit(q) Restart(r) Help(?)");
 
 			instruction = input.next().charAt(0);
 
@@ -73,7 +73,8 @@ public class CC3K {
 					instruction != 'h' &&
 					instruction != 'e' &&
 					instruction != 'd' &&
-					instruction != 'o') {
+					instruction != 'o' &&
+					instruction != '?') {
 				System.out.println("Invalid command!");
 				instruction = input.next().charAt(0);
 			}
