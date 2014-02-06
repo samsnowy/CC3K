@@ -42,6 +42,26 @@ public class CC3K {
 		currentGold = 0;
 	}
 
+	//help menu
+	private static void help(){
+		System.out.println("Move: ");
+		System.out.println("no = move north");
+		System.out.println("ea = move east");
+		System.out.println("so = move south");
+		System.out.println("we = move west");
+		System.out.println("nw = move northwest");
+		System.out.println("ne = move northeast");
+		System.out.println("se = move southeast");
+		System.out.println("sw = move southwest");
+		System.out.println();
+		System.out.println("Attack: ");
+		System.out.println("input 'a' followed by direction");
+		System.out.println("e.g.: ano = attack north");
+		System.out.println("");
+		System.out.println("Use potion: ");
+		System.out.println("input 'u' followed by direction");
+	}
+	
 	public static void main(String[] args) {
 
 		int tempchar;
@@ -90,6 +110,10 @@ public class CC3K {
 				input.close();
 				continue;
 			} else if(instruction == 'r') {
+				newGame = true;
+				continue;
+			} else if(instruction == '?'){
+				help();
 				newGame = true;
 				continue;
 			}
@@ -170,6 +194,7 @@ public class CC3K {
 					String a = input.next();
 					char[] b = a.toCharArray();
 					instruction = b[0];
+					boolean helped = false;
 					
 
 					//if the instruction is restart
@@ -184,6 +209,9 @@ public class CC3K {
 						System.out.println("Game over");
 						break;
 						//if the instruction is to move
+					} else if (instruction == '?'){
+						help();
+						helped = true;
 					} else if (b.length < 2 || b.length > 3) {
 						System.out.println("Invalid command!");
 						continue;
@@ -344,7 +372,8 @@ public class CC3K {
 						continue;
 					}
 
-					//print the floor layout
+					//print the floor layout, if have not seeked for help
+					if (!helped)
 					 currentFloor.printFloor();
 				}
 
