@@ -45,7 +45,7 @@ public class CC3K {
 	//help menu
 	private static void help(){
 		System.out.println("Move: ");
-		System.out.println("no = move north!");
+		System.out.println("no = move north");
 		System.out.println("ea = move east");
 		System.out.println("so = move south");
 		System.out.println("we = move west");
