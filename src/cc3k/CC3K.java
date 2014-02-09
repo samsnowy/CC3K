@@ -70,7 +70,7 @@ public class CC3K {
 		boolean newGame = true;
 
 		File file = new File("map.txt");
-		Reader reader = null;	
+		BufferedReader reader = null;	
 		Scanner input = new Scanner(System.in);
 
 
@@ -141,7 +141,7 @@ public class CC3K {
 				Floor currentFloor = new Floor(i, hostileMerchant);
 				
 				try {
-					reader = new InputStreamReader(new FileInputStream(file));
+					reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -149,25 +149,20 @@ public class CC3K {
 
 				//read in the map
 				try {
-					for(int j=0; j<25; j++) {
-						
-						if (j > 0) { tempchar = reader.read(); }
-						
-						for(int k=0; k<79; k++) {
-							tempchar = reader.read();
-							if (((char) tempchar) != '\n') 
-							{
-								currentFloor.setTile(j, k, (char) tempchar);
-							}
+					String line;
+					int j = 0;
+					while ((line = reader.readLine()) != null) {
+						char[] chars = line.toCharArray();
+						for (int k = 0; k < 79; k++) {
+							currentFloor.setTile(j, k, chars[k]);
 						}
+						j++;
 					}
 
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
-
 
 				//generate the player based on the player's race
 				currentFloor.playerGenerator(playerRace);
