@@ -64,7 +64,6 @@ public class CC3K {
 	
 	public static void main(String[] args) {
 
-		int tempchar;
 		char instruction, playerRace;
 		boolean nextFloor;
 		boolean newGame = true;
