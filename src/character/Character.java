@@ -16,8 +16,7 @@ abstract class Character {
 			this.floor = floor;
 	}
 	
-	public int getX() { return x;}
-	public int getY() { return y;}
+	
 	public int getHP() { return hp; }
 	public int getAtk() { return atk; }
 	public int getDef() { return def; }
@@ -25,9 +24,6 @@ abstract class Character {
 	public Floor getFloor() { return floor; }
 	
 	public void setHP(int HP) { hp = HP; }
-	public void setAtk(int ATK) { atk = ATK; }
-	public void setDef(int DEF) { def = DEF; }
 	public void setGold (float Gold) { gold = Gold; }
 	public void setCoord (int xcord, int ycord) { x = xcord; y = ycord; }
-	public void setFloor (Floor cfloor) { floor = cfloor; }
 }

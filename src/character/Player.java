@@ -10,6 +10,7 @@ public class Player extends Character {
 	private int defaultHP = 0;
 	private char currentTile;
 	private String race;
+	private Job job;
 	
 	public Player(int x, int y, int hp, int dhp, int atk, int def, float gold, Floor floor, int cc, String Race) {
 		super(x, y, hp, atk, def, gold, floor);
@@ -18,10 +19,20 @@ public class Player extends Character {
 		currentTile = '.';
 		race = Race;
 		floor.setTile(x, y, '@');
+		job = null;
 	}
 	
 	public boolean getPK(int index) { 
 		return potionKnowledge[index]; 
+	}
+	
+	public String getJob() { return job.getname(); }
+	
+	public void setJob(String Job) {
+		if (Job.equals("Rogue"))
+		{
+			job = new Rogue(Job, "Young Money", "WestSide");
+		}		
 	}
 	
 	public void knowPK(int index) {
@@ -42,7 +53,7 @@ public class Player extends Character {
 		int dmg, temphp;
 		dmg = (int) Math.ceil((100.0/(100.0 + e.getDef()))*this.getAtk());
 		temphp = e.getHP() - dmg;
-		e.setHP(temphp);
+		e.hp = temphp;
 		return dmg;
 	}
 	
@@ -332,7 +343,7 @@ public class Player extends Character {
 	             
 	              //checks which enemy is interacted
 	              for(int i = 0; i < floor.getNumEnemies(); i++){
-	                  if((tempx == floor.getEnemy(i).getX()) && (tempy == floor.getEnemy(i).getY())){
+	                  if((tempx == floor.getEnemy(i).x) && (tempy == floor.getEnemy(i).y)){
 	                      Enemy e = floor.getEnemy(i);
 	                      //calculates the damage and the enemy's remaining HP
 	                      int dmg = attack(e);
@@ -401,6 +412,10 @@ public class Player extends Character {
 	          else{
 	            floor.setAction("Player sees nothing to attack at that direction.");
 	          }
+	      }
+	      
+	      else if (action == 'p') {
+	    	  floor.setAction(job.gets1());
 	      }
 	      //returns false if the player has not interact with a stairway
 	      return false;

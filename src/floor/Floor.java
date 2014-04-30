@@ -85,6 +85,7 @@ public class Floor {
 		System.out.println("Atk: " + player.getAtk());
 		System.out.println("Def: " + player.getDef());
 		System.out.println("Action: " + action);
+		System.out.println("Job: " + player.getJob());
 
 	}
 	

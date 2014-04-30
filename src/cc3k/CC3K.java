@@ -167,6 +167,8 @@ public class CC3K {
 				//generate the player based on the player's race
 				currentFloor.playerGenerator(playerRace);
 				player = currentFloor.getPlayer();
+				
+				player.setJob("Rogue");
 
 				//generate the contents of the current floor
 				currentFloor.contentGenerator();
@@ -215,7 +217,8 @@ public class CC3K {
 							instruction == 'e' ||
 							instruction == 'w' ||
 							instruction == 'u' ||
-							instruction == 'a') {
+							instruction == 'a' ||
+							instruction == 'p') {
 
 						char command;
 
@@ -299,7 +302,12 @@ public class CC3K {
 								System.out.println("Invalid command!");
 								continue;
 							}
-						} else {
+						}
+						else if (instruction == 'p') {
+							nextFloor = player.move('6', 'p');
+						}
+						
+						else {
 							
 							if (b.length == 2)
 							{
